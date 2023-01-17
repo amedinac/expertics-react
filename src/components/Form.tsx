@@ -13,7 +13,7 @@ const Form = () => {
 		<div className="md:w-1/2 lg:w-2/5">
 			
 			
-			<form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-10">
+			<form onSubmit={handleSubmit} className="bg-gray-100 shadow-md rounded-lg p-10">
 			<h2 className="font-bold text-5xl text-justify text-blue-900">
 				Expertics {""}
 					<div className="text-gray-500 text-xl pb-8 text-left">Punto de Venta.</div>
@@ -48,7 +48,7 @@ const Form = () => {
 				</div>
 				<input
 					type="submit"
-					className="bg-blue-900 w-full mt-9 p-3 text-white font-bold rounded hover:bg-blue-700 transition-opacity duration-300 cursor-pointer"
+					className="bg-blue-900 w-1/3 mt-9 p-3 text-white font-bold rounded hover:bg-blue-700 transition-opacity duration-300 cursor-pointer"
 					value={'Ingresar'}
 				/>
 			</form>
