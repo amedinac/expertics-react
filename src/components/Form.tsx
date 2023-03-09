@@ -1,13 +1,30 @@
 import { useState } from 'react';
 
 const Form = () => {
-	const [ usuario, setUsuario ] = useState('');
+	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('Form submitted');
-		console.log(e.target[0].value);
+		//console.log(usuario);
+		fetch('http://localhost:3000/auth/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				email,
+				password
+			})
+			
+		})
+
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			}
+			);
 	};
 
 	return (
@@ -21,25 +38,25 @@ const Form = () => {
 			</h2>
 
 				<div className="mb-4">
-					<label className="block text-gray-700 text-lg font-bold mb-2 text-justify" htmlFor="usuario">
-						User.
+					<label className="block text-gray-700 text-lg font-bold mb-2 text-justify" htmlFor="email">
+						Email.
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						id="usuario"
+						id="email"
 						type="text"
 						placeholder="@expertics.com.mx"
-						value={usuario}
-						onChange={(e) => setUsuario(e.target.value)}
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
 					/>
 				</div>
 				<div className="mb-4">
-					<label className="block text-gray-700 text-lg font-bold mb-2 text-justify" htmlFor="contraseña">
+					<label className="block text-gray-700 text-lg font-bold mb-2 text-justify" htmlFor="password">
 						Password.
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						id="contraseña"
+						id="password"
 						type="password"
 						placeholder="********"
 						value={password}
